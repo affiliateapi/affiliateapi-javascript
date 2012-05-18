@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AffiliateAPI Demo</title>
+  <script src='./affiliateapi.js' type='text/javascript'></script>
+
+  <script type="text/javascript">
+    AffiliateAPI.GoDaddy.pid(1234567);
+    AffiliateAPI.GoDaddy.isc('cjc599v');
+    AffiliateAPI.GoDaddy.sid('global');
+  </script>
+</head>
+
+<body>
+  <h1>GoDaddy Links</h1>
+  <ul>
+    <li>
+      <a href='#' onclick='AffiliateAPI.GoDaddy.whois("AffiliateAPI.com"); return false;'>Whois for AffiliateAPI.com</a>
+    </li>
+    <li>
+      <a href='#' onclick='AffiliateAPI.GoDaddy.register("Affiliate-API.com", {sid: "local", isc: "cjc799fat"}); return false;'>Register Affiliate-API.com</a>
+    </li>
+  </ul>
+</body>
+
+</html>
