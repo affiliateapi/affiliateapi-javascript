@@ -80,8 +80,8 @@ var AffiliateAPI = (function (parent) {
     return 'http://' + this.__linkHost() + '/click-' + (options['pid'] || this.pid()) + '-10388358?url=http%3A%2F%2Fwho.godaddy.com%2Fwhois.aspx%3Fdomain%3D' + domain + this.__sidSuffix(options['sid'] || this.sid());
   };
 
-  goDaddy.whois = function(domain, sid) {
-    parent.navigateTo(this.whoisUrl(domain, sid));
+  goDaddy.whois = function(domain, options) {
+    parent.navigateTo(this.whoisUrl(domain, options));
     return false;
   }
 
@@ -97,8 +97,21 @@ var AffiliateAPI = (function (parent) {
     return 'http://' + this.__linkHost() + '/interactive?domainToCheck=' + domain + '&tld=' + extension + '&checkAvail=1&pid=' + (options['pid'] || this.pid()) + '&url=http%3A%2F%2Fwww.godaddy.com%2Fgdshop%2Fregistrar%2Fsearch.asp%3Fisc%3D' + (options['isc'] || this.isc()) + '&aid=10390987' + this.__sidSuffix(options['sid'] || this.sid());
   }
 
-  goDaddy.register = function(domain, sid) {
-    parent.navigateTo(this.registerUrl(domain, sid));
+  goDaddy.register = function(domain, options) {
+    parent.navigateTo(this.registerUrl(domain, options));
+    return false;
+  }
+
+  goDaddy.domainBuyServiceUrl = function(domain, options) {
+    if (!options) {
+      options = {};
+    }
+
+    return 'http://' + this.__linkHost() + '/click-' + (options['pid'] || this.pid()) + '-10388358?url=http%3A%2F%2Fwww.godaddy.com%2Fdomains%2Fdomain-broker.aspx%3Fci%3D53969%26domaintocheck%3D' + domain + '%26isc%3D' + (options['isc'] || this.isc()) + this.__sidSuffix(options['sid'] || this.sid());
+  }
+
+  goDaddy.domainBuyService = function(domain, options) {
+    parent.navigateTo(this.domainBuyServiceUrl(domain, options));
     return false;
   }
 
