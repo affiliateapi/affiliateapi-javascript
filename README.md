@@ -6,7 +6,7 @@ This Javascript module provides a framework to easily add affiliate links to a
 dynamic web application.
 
 
-## Currently Supporter Affiliate Programs
+## Affiliate Programs Currently Supported
 
 * GoDaddy (via Commission Junction)
 
