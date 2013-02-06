@@ -21,7 +21,7 @@ var AffiliateAPI = (function (parent) {
   goDaddy.__pid = null;         // global PID
   goDaddy.__sid = null;         // global SID, optional
   goDaddy.__isc = '0000000000'; // global ISC (Coupon Code)
-  
+
   goDaddy.__linkHosts = ['www.tkqlhce.com', 'www.kqzyfj.com', 'www.jdoqocy.com', 'www.dpbolvw.net', 'www.anrdoezrs.net'];
 
   goDaddy.__linkHost = function() {
@@ -71,7 +71,7 @@ var AffiliateAPI = (function (parent) {
 
     }
   }
-  
+
   goDaddy.whoisUrl = function(domain, options) {
     if (!options) {
       options = {};
@@ -115,6 +115,15 @@ var AffiliateAPI = (function (parent) {
     return false;
   }
 
+  goDaddy.deepLinkUrl = function(url, options) {
+    if (!options) { options = {}; }
+    return 'http://' + this.__linkHost() + '/click-' + (options['pid'] || this.pid()) + '-10388358?url=' + encodeURIComponent(url + (url.indexOf('?') > 0 ? '&isc=' : '?isc=') + (options['isc'] || this.isc())) + this.__sidSuffix(options['sid'] || this.sid());
+  }
+
+  goDaddy.deepLink = function(url, options) {
+    parent.navigateTo(this.deepLinkUrl(url, options));
+    return false;
+  }
 
   return parent;
 
